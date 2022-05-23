@@ -1,3 +1,2 @@
-let age: number = 10;
-if (age < 20) age *= 2
-console.log(age)
+let arr: [number, string] = [1, "Mosh"]
+arr.forEach(n => console.log(n))

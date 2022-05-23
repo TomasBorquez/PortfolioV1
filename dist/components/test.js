@@ -1,6 +1,4 @@
 "use strict";
-let age = 10;
-if (age < 20)
-    age *= 2;
-console.log(age);
+let arr = [1, "Mosh"];
+arr.forEach(n => console.log(n));
 //# sourceMappingURL=test.js.map
