@@ -1,16 +1,30 @@
 import React from "react";
 import './Nav.css'
 import { NavLink } from "react-router-dom";
+import EnterLogo from '../../img/arrowhite.svg'
+import LightBulb from '../../img/lightbulb.svg'
+import GitHubIcon from '../../img/icons8-github.svg'
 
 function Nav() {
 
   return (
     <nav className="navbar">
       <div className="centered">
-          <NavLink className="Home space" to="/">Tomas Borquez</NavLink>
-          <NavLink className="Works space" to="/Works">Works</NavLink>
-          <a className="space" href="https://github.com/TomasBorquez/PortfolioV1">Source</a>
-          {/* <p>might add the dark/light switch</p> */}
+
+          <div className="leftie">
+            <img id="lIcon" src={EnterLogo} alt='icono'/>
+            <NavLink id="home" className="links" to="/">Tomas Borquez</NavLink>
+            <NavLink id="works" className="links" to="/Works">Works</NavLink>
+            <img id="mIcon" src={GitHubIcon} alt='icono'/>
+            <a id="source" className="links" href="https://github.com/TomasBorquez/PortfolioV1">Source</a>
+          </div>
+
+          <div className="rightie">
+            <button id="themeswitcher">
+              <img id="rIcon" src={LightBulb} alt='icono'/>
+            </button>
+          </div>
+
       </div>
     </nav>
   );
