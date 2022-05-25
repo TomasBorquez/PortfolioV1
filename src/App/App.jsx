@@ -1,16 +1,22 @@
-import './App.css';
-import Nav from '../components/Nav/Nav.jsx'
+import React, { Fragment } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import Nav from '../components/Nav/Nav.jsx'
+import About from '../components/About/About.jsx'
+import './App.css';
 function App() {
   return (
     <div className="App">
 
       <Routes>
-        <Route path='/' element={<Nav />}>
-          {/* <Route exact path='/' element={<About/>}/> */}
+        <Route path='/' element={
+              <Fragment>
+                <Nav />
+                <About />
+              </Fragment>
+            }>
         </Route>
 
-        <Route exact path='/works' element={<Nav />}>
+        <Route path='/works' element={<Nav />}>
           
         </Route>
 

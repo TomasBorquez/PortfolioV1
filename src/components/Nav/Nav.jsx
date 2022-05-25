@@ -6,7 +6,6 @@ import LightBulb from '../../img/icons8-bombilla-globo-50.svg'
 import GitHubIcon from '../../img/GitHub-Mark-120px-plus.svg'
 
 function Nav() {
-
   return (
     <nav className="navbar">
       <div className="centered">

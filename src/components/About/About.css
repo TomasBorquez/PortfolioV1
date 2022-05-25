@@ -1,0 +1,20 @@
+.about {
+  position: absolute;
+  display: flex;
+  border-radius: 7px;
+  top: 85px;
+  width: 800px;
+  background-color: #0e0e0e91;
+  backdrop-filter: blur(6px);
+}
+
+.container {
+  margin-left: 172px;
+  width: 450px;
+  height: 300px;
+}
+
+.centerMe {
+  display: flex;
+  justify-content: center;
+}
