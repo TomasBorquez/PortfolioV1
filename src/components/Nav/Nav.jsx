@@ -2,8 +2,8 @@ import React from "react";
 import './Nav.css'
 import { NavLink } from "react-router-dom";
 import EnterLogo from '../../img/arrowhite.svg'
-import LightBulb from '../../img/lightbulb.svg'
-import GitHubIcon from '../../img/icons8-github.svg'
+import LightBulb from '../../img/icons8-bombilla-globo-50.svg'
+import GitHubIcon from '../../img/GitHub-Mark-120px-plus.svg'
 
 function Nav() {
 
