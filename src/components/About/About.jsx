@@ -33,31 +33,40 @@ function About() {
 
     // Our Pupper
     const gltfLoader = new GLTFLoader()
-    gltfLoader.load('../../model/amongus.gltf',
-            (gltf) => {
+    gltfLoader.load('./model/amongus.gltf',
+            gltf => {
               scene.add(gltf.scene)
             },
+              () => {},
+            () => {}
     )
+    // Cube
+    // const geometry = new THREE.BoxBufferGeometry(1, 1, 1)
+    // const material = new THREE.MeshStandardMaterial()
+    // const cube = new THREE.Mesh(
+    //   geometry,
+    //   material
+    // )
+    // scene.add(cube)
+
+    // AO
+    const AO = new THREE.AmbientLight(0xffffff, 1)
+    scene.add(AO)
 
     // DirectionalLight (all of the above with angle)
-    // const directionalLight = new THREE.DirectionalLight(0xffffff, 1.3)
-    // directionalLight.position.set(5, 5, 5)
-    // scene.add(directionalLight)
-
-    // DirectionalLight (all of the above with angle)
-    // const directionalLight = new THREE.DirectionalLight(0xffffff, 1.3)
+    // const directionalLight = new THREE.DirectionalLight(0xffffff, 0.2)
     // directionalLight.position.set(5, 5, 5)
     // scene.add(directionalLight)
 
     // HDRI
     // const enviormentMap = new THREE.CubeTextureLoader()
     // const envMap = enviormentMap.load([
-    //   '../../model/Standard-Cube-Map/px.png',
-    //   '../../model/Standard-Cube-Map/nx.png',
-    //   '../../model/Standard-Cube-Map/py.png',
-    //   '../../model/Standard-Cube-Map/ny.png',
-    //   '../../model/Standard-Cube-Map/pz.png',
-    //   '../../model/Standard-Cube-Map/nz.png',
+    //   './envmap/px.png',
+    //   './envmap/nx.png',
+    //   './envmap/py.png',
+    //   './envmap/ny.png',
+    //   './envmap/pz.png',
+    //   './envmap/nz.png',
     // ])
     // scene.environment = envMap
     // scene.background = envMap
@@ -84,8 +93,8 @@ function About() {
           <p>Full stack Developer</p>
         </div>
 
-        <div className="container" ref={mountRef}></div>
       </div>
+        <div className="container" ref={mountRef}></div>
     </div>
   );
 }
