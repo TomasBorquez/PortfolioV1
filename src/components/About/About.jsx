@@ -21,52 +21,70 @@ function About() {
     scene.add(camera);
 
     // Renderer
-    const renderer = new THREE.WebGLRenderer({alpha: true});
+    const renderer = new THREE.WebGLRenderer({
+      alpha: true,
+      antialias: true
+    });
     renderer.setSize(currentMount.clientWidth, currentMount.clientHeight);
     currentMount.appendChild(renderer.domElement)
 
+    // Shadows
+    // renderer.shadowMap.enabled = true;
+    // renderer.shadowMap.type = THREE.PCFShadowMap;
+    renderer.toneMapping = THREE.ReinhardToneMapping;
+    renderer.toneMappingExposure = 2.3;
+    renderer.shadowMap.enabled = true;
+
+
     // Controls
     const controls = new OrbitControls(camera, renderer.domElement)
-    controls.enableDamping = true
+    controls.enableDamping = true;
     // move camera ^^
 
     // Our model
     const model = new URL('../../../public/models/doggy.glb', import.meta.url);
     const adder = new THREE.Group();
     const gltfLoader = new GLTFLoader()
-    gltfLoader.load(model.href,
-            gltb => {
+    gltfLoader.load(model.href, gltb => {
               adder.add(gltb.scene)
+              adder.traverse(n => {
+                if (n.isMesh) {
+                  n.castShadow = true;
+                  n.receiveShadow = true;
+                  if (n.material.map) n.material.map.anisotropy = 16;
+                }
+              })
               adder.position.y = -1
               scene.add(adder)
-              console.log(gltb)
             },
     )
 
     // DirectionalLight (all of the above with angle)
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 1)
-    directionalLight.position.set(5, 5, 5)
+    const directionalLight = new THREE.HemisphereLight(0xd8cb9c, 0x080820, 0.6)
+    // directionalLight.position.set(5, 5, 5)
     scene.add(directionalLight)
-
-    // HDRI
-    // const enviormentMap = new THREE.CubeTextureLoader()
-    // const envMap = enviormentMap.load([
-    //   './envmap/px.png',
-    //   './envmap/nx.png',
-    //   './envmap/py.png',
-    //   './envmap/ny.png',
-    //   './envmap/pz.png',
-    //   './envmap/nz.png',
-    // ])
-    // scene.environment = envMap
+    
+    const spotLight = new THREE.SpotLight(0xffa95c, 4)
+    spotLight.castShadow = true;
+    spotLight.shadow.bias = -0.001;
+    spotLight.shadow.mapSize.width = 1024 * 4;
+    spotLight.shadow.mapSize.height = 1024 * 4;
+    scene.add(spotLight)
 
     // Scene render
     const animate = () => {
       controls.update()
       renderer.render(scene, camera)
+      spotLight.position.set(
+        camera.position.x + 10,
+        camera.position.y + 10,
+        camera.position.z + 10,
+      )
+      adder.rotation.y += 0.002
       requestAnimationFrame(animate)
     }
     animate()
+
     // Scene cleanup
     return () => {
       currentMount.removeChild(renderer.domElement)
