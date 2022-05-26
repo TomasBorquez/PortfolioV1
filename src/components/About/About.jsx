@@ -1,5 +1,7 @@
 import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import './About.css';
 
 function About() {
@@ -23,15 +25,50 @@ function About() {
     renderer.setSize(currentMount.clientWidth, currentMount.clientHeight);
     currentMount.appendChild(renderer.domElement)
 
-    // Our Sphere
-    const geometry = new THREE.SphereGeometry(0.8, 32, 16);
-    const material = new THREE.MeshBasicMaterial( { color: 0xffff00})
-    const shpere = new THREE.Mesh(geometry, material)
-    scene.add(shpere)
+    // Controls
+    const controls = new OrbitControls(camera, renderer.domElement)
+    // controls.enableDamping = true
+    // controls.target = new THREE.Vector3(3, 3, 3)
+    // mover la camara ^^
+
+    // Our Pupper
+    const gltfLoader = new GLTFLoader()
+    gltfLoader.load('../../model/amongus.gltf',
+            (gltf) => {
+              scene.add(gltf.scene)
+            },
+    )
+
+    // DirectionalLight (all of the above with angle)
+    // const directionalLight = new THREE.DirectionalLight(0xffffff, 1.3)
+    // directionalLight.position.set(5, 5, 5)
+    // scene.add(directionalLight)
+
+    // DirectionalLight (all of the above with angle)
+    // const directionalLight = new THREE.DirectionalLight(0xffffff, 1.3)
+    // directionalLight.position.set(5, 5, 5)
+    // scene.add(directionalLight)
+
+    // HDRI
+    // const enviormentMap = new THREE.CubeTextureLoader()
+    // const envMap = enviormentMap.load([
+    //   '../../model/Standard-Cube-Map/px.png',
+    //   '../../model/Standard-Cube-Map/nx.png',
+    //   '../../model/Standard-Cube-Map/py.png',
+    //   '../../model/Standard-Cube-Map/ny.png',
+    //   '../../model/Standard-Cube-Map/pz.png',
+    //   '../../model/Standard-Cube-Map/nz.png',
+    // ])
+    // scene.environment = envMap
+    // scene.background = envMap
 
     // Scene render
-    renderer.render(scene, camera)
-
+    const animate = () => {
+      controls.update()
+      renderer.render(scene, camera)
+      requestAnimationFrame(animate)
+    }
+    animate()
     // Scene cleanup
     return () => {
       currentMount.removeChild(renderer.domElement)
