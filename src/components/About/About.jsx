@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
+import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls.js';
+import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js';
 import './About.css';
 
 function About() {
@@ -12,51 +12,41 @@ function About() {
     // Scene
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(
-      5,
+      4,
       currentMount.clientWidth / currentMount.clientHeight,
       0.5,
       1000
     );
-    camera.position.z = 20
+    camera.position.set(60, 20, 20)
     scene.add(camera);
 
     // Renderer
-    const renderer = new THREE.WebGLRenderer();
+    const renderer = new THREE.WebGLRenderer({alpha: true});
     renderer.setSize(currentMount.clientWidth, currentMount.clientHeight);
     currentMount.appendChild(renderer.domElement)
 
     // Controls
     const controls = new OrbitControls(camera, renderer.domElement)
-    // controls.enableDamping = true
-    // controls.target = new THREE.Vector3(3, 3, 3)
-    // mover la camara ^^
+    controls.enableDamping = true
+    // move camera ^^
 
-    // Our Pupper
+    // Our model
+    const model = new URL('../../../public/models/doggy.glb', import.meta.url);
+    const adder = new THREE.Group();
     const gltfLoader = new GLTFLoader()
-    gltfLoader.load('./model/amongus.gltf',
-            gltf => {
-              scene.add(gltf.scene)
+    gltfLoader.load(model.href,
+            gltb => {
+              adder.add(gltb.scene)
+              adder.position.y = -1
+              scene.add(adder)
+              console.log(gltb)
             },
-              () => {},
-            () => {}
     )
-    // Cube
-    // const geometry = new THREE.BoxBufferGeometry(1, 1, 1)
-    // const material = new THREE.MeshStandardMaterial()
-    // const cube = new THREE.Mesh(
-    //   geometry,
-    //   material
-    // )
-    // scene.add(cube)
-
-    // AO
-    const AO = new THREE.AmbientLight(0xffffff, 1)
-    scene.add(AO)
 
     // DirectionalLight (all of the above with angle)
-    // const directionalLight = new THREE.DirectionalLight(0xffffff, 0.2)
-    // directionalLight.position.set(5, 5, 5)
-    // scene.add(directionalLight)
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 1)
+    directionalLight.position.set(5, 5, 5)
+    scene.add(directionalLight)
 
     // HDRI
     // const enviormentMap = new THREE.CubeTextureLoader()
@@ -69,7 +59,6 @@ function About() {
     //   './envmap/nz.png',
     // ])
     // scene.environment = envMap
-    // scene.background = envMap
 
     // Scene render
     const animate = () => {
@@ -84,7 +73,6 @@ function About() {
     }
   }, []);
 
-
   return (
     <div className='centerMe'>
       <div className="about">
@@ -92,9 +80,9 @@ function About() {
           <p>Tomas Alfonso Borquez</p>
           <p>Full stack Developer</p>
         </div>
+        <div className="container" ref={mountRef}></div>
 
       </div>
-        <div className="container" ref={mountRef}></div>
     </div>
   );
 }
