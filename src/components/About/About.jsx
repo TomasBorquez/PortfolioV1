@@ -91,46 +91,36 @@ function About() {
   }, []);
 
   return (
-    <div className="centerMe">
-      <div className="about">
+    <div id="centerMe">
+      <div id="AboutBox">
+        {/* Info about me part */}
         <div className="info">
-          <div id="tittletext">
-            <h2>
-              Tomas Alfonso Borquez
-              <span className='red'>.</span>
-            </h2>
-            <img src="https://cdn.discordapp.com/attachments/706958964126122014/979544331826384916/1648855219888.jpg" id="icon" alt='doggo'></img>
-            <p id='ptetx'>
-              Full stack Developer
-            </p>
-            <h3>
-              Bio
-              <span className='red'>.</span>
-            </h3>
-            <h5>
+            <div id='TittleText'>Tomas Alfonso Borquez<span className='red'>.</span></div>
+            <img id="DoggoIcon" src="https://cdn.discordapp.com/attachments/706958964126122014/979544331826384916/1648855219888.jpg" alt='doggo'></img>
+            <div id='Position'>Full stack Developer</div>
+            <div id='BioTittle'>Bio<span className='red'>.</span></div>
+            <div id='PlainText'>
               Hi, my name is Tomas, I'm from argentina and I'm an aspiring software Developer looking for my first working experience on the software develpoment industry, I'm currently studying software web develpoment at a bootcamp called Henry.
               <br></br>
               I love developing innovative and creative projects, always looking for a new challenges and new stuff to learn since I'm in love with what I do, and I do feel excited and passionate about all the techologies available to learn and soon to be released, that's why I'm constantly expanding my knowledge and looking on all sorts of ways on how to improve.
-            </h5>
-          </div>
-        {/* CV Button */}
-        <a href='' id='buttonCV'>
-          Download CV
-          <img id="svgCV" src={CloudDownload} alt='icono'/>
-        </a>
+            </div>
+            {/* CV Button */}
+            <a href='https://martinbogado-portfolio.vercel.app/static/media/resume.8545a1bd3483c56f9e92.pdf' id='ButtonCV'>
+              Download CV
+              <img id="svgCV" src={CloudDownload} alt='cloud icon'/>
+            </a>
 
-        {/* GitHub Button */}
-        <a href='https://github.com/TomasBorquez' id='buttonG'>
-          <img id="svgG" src={GitHubIcon} alt='icono'/>
-        </a>
+            {/* GitHub Button */}
+            <a href='https://github.com/TomasBorquez' id='ButtonG'>
+              <img id="svgG" src={GitHubIcon} alt='github icon'/>
+            </a>
 
-        {/* Linkedin Button */}
-        <a href='https://www.linkedin.com/in/tomasborquez/' id='buttonL'>
-          <img id="svgL" src={LinkedinIcon} alt='icono'/>
-        </a>
-
+            {/* Linkedin Button */}
+            <a href='https://www.linkedin.com/in/tomasborquez/' id='ButtonL'>
+              <img id="svgL" src={LinkedinIcon} alt='linkedin icon'/>
+            </a>
         </div>
-        <div className="spacebetween"></div>
+        {/* Canvas */}
         <div className="container" ref={mountRef}></div>
       </div>
     </div>
