@@ -98,14 +98,17 @@ function About() {
             <div id='TittleText'>Tomas Alfonso Borquez<span className='red'>.</span></div>
             <img id="DoggoIcon" src="https://cdn.discordapp.com/attachments/706958964126122014/979544331826384916/1648855219888.jpg" alt='doggo'></img>
             <div id='Position'>Full stack Developer</div>
-            <div id='BioTittle'>Bio<span className='red'>.</span></div>
-            <div id='PlainText'>
-              Hi, my name is Tomas, I'm from argentina and I'm an aspiring software Developer looking for my first working experience on the software develpoment industry, I'm currently studying software web develpoment at a bootcamp called Henry.
-              <br></br>
-              I love developing innovative and creative projects, always looking for a new challenges and new stuff to learn since I'm in love with what I do, and I do feel excited and passionate about all the techologies available to learn and soon to be released, that's why I'm constantly expanding my knowledge and looking on all sorts of ways on how to improve.
+            <div id='Bio'>
+              <div id='BioTittle'>Bio<span className='red'>.</span></div>
+              <div id='BioText'>
+                Hi, my name is Tomas, I'm from argentina and I'm an aspiring software Developer looking for my first working experience on the software develpoment industry, I'm currently studying software web develpoment at a bootcamp called Henry.
+                <br></br>
+                I love developing innovative and creative projects, always looking for a new challenges and new stuff to learn since I'm in love with what I do, and I do feel excited and passionate about all the techologies available to learn and soon to be released, that's why I'm constantly expanding my knowledge and looking on all sorts of ways on how to improve. Some more text cause i really need to wawa but then the cumzone happens and it all gets crazy cock i just need your love.
+              </div>
             </div>
+            <div id='WebCertificate'>Certificate in <a id="WebDevelopment" href='https://github.com/TomasBorquez'>Web development</a></div>
             {/* CV Button */}
-            <a href='https://martinbogado-portfolio.vercel.app/static/media/resume.8545a1bd3483c56f9e92.pdf' id='ButtonCV'>
+            <a href='https://github.com/TomasBorquez' id='ButtonCV'>
               Download CV
               <img id="svgCV" src={CloudDownload} alt='cloud icon'/>
             </a>
