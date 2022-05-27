@@ -1,7 +1,11 @@
+// React stuff
 import { useEffect, useRef } from 'react';
+import { NavLink } from "react-router-dom";
+// Three stuff
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+// Icons
 import CloudDownload from '../../img/icons8-download-from-cloud-50.svg'
 import GitHubIcon from '../../img/GitHub-Mark-120px-plus.svg'
 import LinkedinIcon from '../../img/icons8-linkedin.svg'
@@ -42,7 +46,7 @@ function About() {
     // move camera ^^
 
     // Our model
-    const model = new URL('../../../public/models/doggy.glb', import.meta.url);
+    const model = new URL('../../../public/models/puppermodel.glb', import.meta.url);
     const adder = new THREE.Group();
     const gltfLoader = new GLTFLoader();
     gltfLoader.load(model.href, gltb => {
@@ -125,6 +129,7 @@ function About() {
         </div>
         {/* Canvas */}
         <div className="container" ref={mountRef}></div>
+        <NavLink id="MyPortfolio" to="/works">My portfolio </NavLink>
       </div>
     </div>
   );

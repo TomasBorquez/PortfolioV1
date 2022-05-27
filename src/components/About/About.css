@@ -11,7 +11,7 @@
 
 .container {
   position: relative;
-  width: 620px;
+  width: 800px;
   height: 488px;
 }
 
@@ -96,6 +96,23 @@
   position: relative;
   filter: invert(100%);
   width: 23px;
+}
+/* ------------------- */
+/* Button for Portfolio */
+/* ------------------- */
+#MyPortfolio {
+  border: none;
+  border-radius: 10px;
+  color: white;
+  background-color: #2e304787;
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: 400;
+  text-decoration: none;
+  padding: 9px 110px 9px;
+  position: absolute;
+  top: 433px;
+  left: 605px;
 }
 /* -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ */
 /* ----Font styles---- */
