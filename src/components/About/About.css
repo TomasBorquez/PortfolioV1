@@ -5,13 +5,11 @@
   top: 85px;
   width: 1000px;
   background-color: #0e0e0e91;
-  /* background-color: #d8cb9c; */
   backdrop-filter: blur(6px);
 }
 
 .container {
   position: relative;
-  margin-left: 220px;
   width: 620px;
   height: 488px;
 }
@@ -19,4 +17,135 @@
 .centerMe {
   display: flex;
   justify-content: center;
+}
+
+.red {
+  color: #db6262;
+  padding-left: 1px;
+}
+
+#buttonCV {
+  border: none;
+  border-radius: 10px;
+  color: white;
+  background-color: #313bac;
+  margin-left: 15px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  outline: none;
+  padding: 6px 22px 10px;
+  position: absolute;
+  bottom: 16px;
+}
+
+#buttonCV:hover {
+  background-color: #1a2060;
+}
+
+#svgCV {
+  position: relative;
+  filter: invert(100%);
+  top: 5px;
+  left: 5px;
+  width: 23px;
+}
+
+#buttonG {
+  border: none;
+  border-radius: 15px;
+  color: white;
+  background-color: #313bac;
+  margin-left: 15px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  outline: none;
+  padding: 4px 4px 0px;
+  position: absolute;
+  bottom: 21px;
+  left: 166px;
+}
+
+#buttonG:hover {
+  background-color: #1a2060;
+}
+
+#svgG {
+  position: relative;
+  filter: invert(100%);
+  width: 23px;
+}
+
+#buttonL {
+  border: none;
+  border-radius: 15px;
+  color: white;
+  background-color: #313bac;
+  margin-left: 15px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  outline: none;
+  padding: 4px 4px 0px;
+  position: absolute;
+  bottom: 21px;
+  left: 200px;
+}
+
+#buttonL:hover {
+  background-color: #1a2060;
+}
+
+#svgL {
+  position: relative;
+  filter: invert(100%);
+  width: 23px;
+}
+
+p {
+  color: white;
+  font-size: 22px;
+  margin-top: 6px;
+  margin-left: 12px;
+  position: relative;
+  bottom: 63px;
+  left: 80px
+}
+
+h2 {
+  color: white;
+  margin-top: 10px;
+  margin-bottom: 6px;
+  margin-left: 10px;
+  font-size: 33.2px;
+  font-weight: 1000;
+}
+
+h3 {
+  color: white;
+  position: relative;
+  margin-left: 8px;
+  bottom: 37px;
+}
+
+h5 {
+  color: rgb(207, 207, 207);
+  font-size: 16px;
+  font-weight: 500;
+  position: relative;
+  margin-left: 8px;
+  bottom: 47px;
+  width: 480px;
+  margin-right: 6px;
+  text-align: justify;
+  text-indent: 15px;
+}
+
+#icon {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border-radius: 100%;
+  margin-left: 5px;
 }
