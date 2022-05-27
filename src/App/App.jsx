@@ -16,7 +16,12 @@ function App() {
             }>
         </Route>
 
-        <Route path='/works' element={<Nav />}>
+        <Route path='/works' element={
+              <Fragment>
+                <Nav />
+                <About />
+              </Fragment>
+        }>
           
         </Route>
 
@@ -27,12 +32,3 @@ function App() {
 }
 
 export default App;
-
-// {/* <nav className="navbar navbar-dark bg-dark">
-// <Link to='/about'>
-//   <span>About</span>
-// </Link>
-//   <SearchBar
-//     onSearch={onSearch}
-//   />
-// </nav> */}
