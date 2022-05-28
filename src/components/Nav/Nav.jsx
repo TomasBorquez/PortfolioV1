@@ -13,7 +13,7 @@ function Nav() {
           <div className="leftie">
             <img id="lIcon" src={EnterLogo} alt='icono'/>
             <NavLink id="home" className="links" to="/PortfolioV1">Tomas Borquez</NavLink>
-            <NavLink id="works" className="links" to="/Works">Works</NavLink>
+            <NavLink id="works" className="links" to="/works">Works</NavLink>
             <img id="mIcon" src={GitHubIcon} alt='icono'/>
             <a id="source" className="links" href="https://github.com/TomasBorquez/PortfolioV1">Source</a>
           </div>
